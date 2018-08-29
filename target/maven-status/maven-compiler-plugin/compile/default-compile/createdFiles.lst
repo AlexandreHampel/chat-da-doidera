@@ -1,0 +1,4 @@
+message\MessageRepository.class
+message\Application.class
+message\Message.class
+message\MessageController.class

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+	</head>
+    <body>
+		<h2>CHAT DA DOIDERA</h2>
+		<h3>©Todos os direitos reservados©</h3>
+		<br>
+        <form method="post" th:action="@{/}" th:object="${message}" >
+            <table>
+				<tr>
+                    <td>NOME:</td>
+					<td><input type="text" th:field="*{name}" /></td>
+                </tr>
+                <tr>
+                    <td>MENSAGEM:</td>
+                    <td><input type="text" th:field="*{msg}" /></td>
+                </tr>
+                <tr>
+                    <td><button type="submit">ENVIAR</button></td>
+                </tr>
+			</table>
+        </form>
+		  <table>
+		        <tr>
+                    <td><button type="submit" onClick="location.reload();">REFRESCAR CHAT</button></td>
+                </tr>
+			</table>
+		<table>
+			<br>
+			<tr th:if="${messages.empty}">
+				<td colspan="2"> O CHAT ESTÁ VAZIO! </td>
+			</tr>
+			
+			<tr th:each="message : ${messages}">
+				<td><span th:text="${message.name}"> </span><label>:</label></td>
+				<td><span th:text="${message.msg}"></span></td>
+			</tr>
+		</table>
+    </body>
+</html>
