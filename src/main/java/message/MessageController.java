@@ -26,8 +26,7 @@ public class MessageController {
 
     @GetMapping("/")
     public String showForm(Model model, Message message) {
-    	List<Message> l = repository.findAll();
-		model.addAttribute("messages", l);
+		model.addAttribute("messages", this.repository.findAllByOrderByIdDesc());
         return "form";
     }
 
