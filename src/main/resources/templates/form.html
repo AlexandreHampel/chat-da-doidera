@@ -21,7 +21,7 @@
                             </div>
                             <div class="col">
                               NOME:
-                                    <input type="text" th:field="*{name}" />
+                                    <input type="text" th:field="*{name}" required />
 							</div> 
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                             <div class="col">
                                 MENSAGEM:
                           
-                                    <input type="text" th:field="*{msg}" />
+                                    <input type="text" th:field="*{msg}" required />
 							</div>
                         </div>
                     </div>
@@ -42,8 +42,7 @@
                          
                      
         </table>
-        
-		  <table>
+         <table>
           <tr>
               <div class="container">
                   <div class="row">
