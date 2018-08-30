@@ -7,11 +7,15 @@
 		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
 		<link href="webjars/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" media="screen"></link>
     	<script src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	
+<style>
+body{
+	background-image:url(http://jonvilma.com/images/purple-16.jpg)
+	}
+</style>
 	</head>
     <body>
 
-		<h2 class="text-center">CHAT DA DOIDERA </h2>
+		<h2 class="text-center"><font color="white">CHAT DA DOIDERA </font></h2>
 		
 		<br>
         <form method="post" th:action="@{/}" th:object="${message}" >
@@ -25,7 +29,7 @@
                             <div class="col">
                             </div>
                             <div class="col">
-							<b  class="text-justify">NOME:</b>
+							<b  class="text-justify"><font color="white">NOME:</font></b>
 							<input class="form-control form-control-lg" type="text" th:field="*{name}" required>
 							</div> 
                         </div>
@@ -40,7 +44,7 @@
                             <div class="col">
                             </div>
                             <div class="col">
-									<b class="text-justify">MENSAGEM:</b>
+									<b class="text-justify"><font color="white">MENSAGEM:</font></b>
 									<input class="form-control form-control-lg" type="text" th:field="*{msg}" required>
 							</div> 
                         </div>
@@ -72,16 +76,16 @@
 			<thead>
 	
 	<tr>
-      <th scope="col"  style="width:500px;">NOME</th>
-    <th scope="col" style="width:500px;">MENSAGEM</th>
+      <th scope="col"  style="width:500px;"><font color="white">NOME</font></th>
+    <th scope="col" style="width:500px;"><font color="white">MENSAGEM</font></th>
     </tr>
   </thead>
   <tbody>
   
    <tr th:each="message : ${messages}">
    
-     <td  width="500px" class="text-justify"><span th:text="${message.name}"  style="display:block;width:500px;word-wrap:break-word"></span></td>
-           <td  width="500px" class="text-justify" ><span th:text="${message.msg}" style="display:block;width:500px;word-wrap:break-word"></span></td>
+     <td  width="500px" class="text-justify"><font color="white"><span th:text="${message.name}"  style="display:block;width:500px;word-wrap:break-word"></font></span></td>
+           <td  width="500px" class="text-justify" ><font color="white"><span th:text="${message.msg}" style="display:block;width:500px;word-wrap:break-word"></font></span></td>
     </tr>
 	
     </tbody>
