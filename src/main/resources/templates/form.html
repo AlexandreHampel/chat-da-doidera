@@ -8,14 +8,17 @@
     <script src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <style>
         body {
-            background-image: url(http://jonvilma.com/images/purple-16.jpg)
+            background-image: url(http://jonvilma.com/images/purple-16.jpg);
+			font-family: Ubuntu;
+			font-size: 16px;
         }
     </style>
 </head>
 <body>
-    <h2 class="text-center">
-        <font color="white">CHAT DA DOIDERA </font>
-    </h2>
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu" />
+    <h2 class="text-center"><b>
+        <font color="white" style="font-family:Ubuntu;">CHAT DA DOIDERA </font>
+   </b></h2>
     <br>
     <form method="post" th:action="@{/}" th:object="${message}">
         <table>
@@ -55,8 +58,8 @@
                         <div class="col-sm-50"> </div>
                         <div class="col-sm-9"> </div>
                         <div class="col-sm-50">
-                            <input class="btn btn-success" type="button" onClick="location.reload();" value="REFRESCAR CHAT">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<button
-                                class="btn btn-primary" type="submit">ENVIAR</button>
+                            <input class="btn btn-success" type="button" style="font-weight: bold;" onClick="location.reload();" value="REFRESCAR CHAT">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<button
+                                class="btn btn-primary" type="submit"><b>ENVIAR</b></button>
                         </div>
                     </div>
                 </div>
