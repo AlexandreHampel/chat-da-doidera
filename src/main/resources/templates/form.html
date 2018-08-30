@@ -7,12 +7,13 @@
 	</head>
     <body>
 		<h2 class="text-center">CHAT DA DOIDERA </h2>
-           <h6 class="text-right" >©Todos os direitos reservados©</h6>
+           <h6 class="text-center" >©Todos os direitos reservados©</h6>
           
 		<br>
         <form method="post" th:action="@{/}" th:object="${message}" >
             <table>
 				<tr>
+
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -20,50 +21,65 @@
                             <div class="col">
                             </div>
                             <div class="col">
-                              NOME:
-                                    <input type="text" th:field="*{name}" required />
+							<b  class="text-justify">NOME:</b>
+							<input class="form-control form-control-lg" type="text" th:field="*{name}" required>
 							</div> 
                         </div>
                     </div>
-                </tr>
-                <tr>
-                    <div class="container">
+								
+					<br>
+						
+					<div class="container">
                         <div class="row">
-                            <div class="col"></div>
-                            <div class="col"></div>
                             <div class="col">
-                                MENSAGEM:
-                          
-                                    <input type="text" th:field="*{msg}" required />
-							</div>
+                            </div>
+                            <div class="col">
+                            </div>
+                            <div class="col">
+									<b class="text-justify">MENSAGEM:</b>
+									<input class="form-control form-control-lg" type="text" th:field="*{msg}" required>
+							</div> 
                         </div>
                     </div>
-                </tr>
-                         
-                     
+                </tr> 
         </table>
+		<br>
          <table>
           <tr>
-              <div class="container">
+            
                   <div class="row">
                                    
-                      <div class="col-sm-2"> </div>
-                      <div class="col-sm-8"> 
-                              <button class="btn btn-primary" type="submit">ENVIAR</button>  <input class="btn btn-success" type="button" onClick="location.reload();" value="REFRESCAR CHAT">
+                      <div class="col-sm-3"> </div>
+                      <div class="col-sm-5"> </div>
+					     <div class="col-sm-3">
+                              <button class="btn btn-primary" type="submit">ENVIAR</button>&#160;&#160;&#160;&#160;<input class="btn btn-success" type="button" onClick="location.reload();" value="REFRESCAR CHAT">
                       </div>
 
                   </div>
-              </div>
+             
 			</tr>
 			</table>
              </form> 
+			 <br>
+		
+		<table class="table table-bordered">
 
-		<table>
-			<tr th:each="message : ${messages}">
-				<td><span th:text="${message.name}"></span><b>:&#160;&#160;&#160;</b></td>
-				
-				<td><span th:text="${message.msg}"></span></td>
-			</tr>
-		</table>
+			<thead>
+	
+	<tr>
+      <th scope="col"  style="width:150px;">NOME</th>
+    <th scope="col" style="width:150px;">MENSAGEM</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+   <tr th:each="message : ${messages}">
+   
+     <td class="text-justify"><span th:text="${message.name}"  style="display:block;width:150px;word-wrap:break-word"></span></td>
+           <td class="text-justify" ><span th:text="${message.msg}" style="display:block;width:150px;word-wrap:break-word"></span></td>
+    </tr>
+	
+    </tbody>
+</table>
     </body>
 </html>
