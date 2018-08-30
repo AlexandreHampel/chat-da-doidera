@@ -1,14 +1,18 @@
 <!DOCTYPE HTML>
 <html>
+
+
 	<head>
+	
 		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
 		<link href="webjars/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" media="screen"></link>
     	<script src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	
 	</head>
     <body>
+
 		<h2 class="text-center">CHAT DA DOIDERA </h2>
-           <h6 class="text-center" >©Todos os direitos reservados©</h6>
-          
+		
 		<br>
         <form method="post" th:action="@{/}" th:object="${message}" >
             <table>
@@ -46,36 +50,38 @@
 		<br>
          <table>
           <tr>
-            
+            <div class="container">
                   <div class="row">
                                    
-                      <div class="col-sm-3"> </div>
-                      <div class="col-sm-5"> </div>
-					     <div class="col-sm-3">
-                              <button class="btn btn-primary" type="submit">ENVIAR</button>&#160;&#160;&#160;&#160;<input class="btn btn-success" type="button" onClick="location.reload();" value="REFRESCAR CHAT">
+                      <div class="col-sm-50"> </div>
+                      <div class="col-sm-9"> </div>
+					     <div class="col-sm-50">
+                              <input class="btn btn-success" type="button" onClick="location.reload();" value="REFRESCAR CHAT">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<button class="btn btn-primary" type="submit">ENVIAR</button>
                       </div>
-
+  </div>
+             
                   </div>
              
 			</tr>
 			</table>
              </form> 
 			 <br>
-<table class="table table-bordered">
+		
+		<table class="table table-bordered">
 
-<thead>
+			<thead>
 	
 	<tr>
-      <th scope="col"  style="width:150px;">NOME</th>
-    <th scope="col" style="width:150px;">MENSAGEM</th>
+      <th scope="col"  style="width:500px;">NOME</th>
+    <th scope="col" style="width:500px;">MENSAGEM</th>
     </tr>
   </thead>
   <tbody>
   
    <tr th:each="message : ${messages}">
    
-     <td class="text-justify"><span th:text="${message.name}"  style="display:block;width:150px;word-wrap:break-word"></span></td>
-           <td class="text-justify" ><span th:text="${message.msg}" style="display:block;width:150px;word-wrap:break-word"></span></td>
+     <td  width="500px" class="text-justify"><span th:text="${message.name}"  style="display:block;width:500px;word-wrap:break-word"></span></td>
+           <td  width="500px" class="text-justify" ><span th:text="${message.msg}" style="display:block;width:500px;word-wrap:break-word"></span></td>
     </tr>
 	
     </tbody>
