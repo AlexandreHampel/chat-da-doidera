@@ -22,7 +22,7 @@
                             <div class="col">
                               NOME:
                                     <input type="text" th:field="*{name}" />
-</div> 
+							</div> 
                         </div>
                     </div>
                 </tr>
@@ -35,15 +35,14 @@
                                 MENSAGEM:
                           
                                     <input type="text" th:field="*{msg}" />
-</div>
+							</div>
                         </div>
                     </div>
                 </tr>
-                
-                 
+                         
                      
         </table>
-        </form>
+        
 		  <table>
           <tr>
               <div class="container">
@@ -51,22 +50,19 @@
                                    
                       <div class="col-sm-2"> </div>
                       <div class="col-sm-8"> 
-                              <button class="btn btn-primary" type="submit">ENVIAR</button>  <button class="btn btn-success" type="submit" onClick="location.reload();">REFRESCAR CHAT</button>
+                              <button class="btn btn-primary" type="submit">ENVIAR</button>  <input class="btn btn-success" type="button" onClick="location.reload();" value="REFRESCAR CHAT">
                       </div>
 
                   </div>
               </div>
-</tr>
-              
-</table>
-		<table>
-			<br>
-			<tr th:if="${messages.empty}">
-				<td colspan="2"> O CHAT ESTÁ VAZIO! </td>
 			</tr>
-			
+			</table>
+             </form> 
+
+		<table>
 			<tr th:each="message : ${messages}">
-				<td><span th:text="${message.name}"> </span><label>:</label></td>
+				<td><span th:text="${message.name}"></span><b>:&#160;&#160;&#160;</b></td>
+				
 				<td><span th:text="${message.msg}"></span></td>
 			</tr>
 		</table>
