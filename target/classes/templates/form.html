@@ -1,26 +1,31 @@
-<html><head>
+<!DOCTYPE HTML>
+<html>
+<head>
 
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+	<title>CHAT DA DOIDERA</title>
+	<link rel="icon" href="https://cotorrachatbot.com/img/favicon.png">
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
     <link href="webjars/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    
+    </link>
     <script src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <style>
         body {
             background-image: url(http://jonvilma.com/images/purple-16.jpg);
 			font-family: Ubuntu;
 			font-size: 16px;
-            widht:1600px;
         }
     </style>
 </head>
 <body>
-<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu">
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu" />
     <h2 class="text-center"><b>
         <font color="white" style="font-family:Ubuntu;">CHAT DA DOIDERA </font>
    </b></h2>
     <br>
-    <form method="post" action="/">
-        <div class="container">
+    <form method="post" th:action="@{/}" th:object="${message}">
+        <table>
+            <tr>
+                <div class="container">
                     <div class="row">
                         <div class="col">
                         </div>
@@ -28,10 +33,12 @@
                         </div>
                         <div class="col">
                             <b class="text-justify"><font color="white">NOME:</font></b>
-                            <input class="form-control form-control-lg" type="text" required="" id="name" name="name" value="">
+                            <input class="form-control form-control-lg" type="text" th:field="*{name}" required>
                         </div>
                     </div>
-                </div><br><div class="container">
+                </div>
+                <br>
+                <div class="container">
                     <div class="row">
                         <div class="col">
                         </div>
@@ -39,27 +46,27 @@
                         </div>
                         <div class="col">
                             <b class="text-justify"><font color="white">MENSAGEM:</font></b>
-                            <input class="form-control form-control-lg" type="text" required="" id="msg" name="msg" value="">
+                            <input class="form-control form-control-lg" type="text" th:field="*{msg}" required>
                         </div>
                     </div>
-                </div><table>
-            <tbody>
-			<tr></tr>
-			</tbody>
-			</table>
-			<br>
-                    <div class="row" style="width:1600">
-                        <div class="col-sm-3"> </div>
-                        <div class="col-sm-6"> </div>
-                        <div class="col-sm-3">
-                            <input class="btn btn-success" type="button" style="font-weight: bold;" onclick="location.reload();" value="REFRESCAR">	&nbsp;&nbsp;<button class="btn btn-primary" type="submit"><b>ENVIAR</b></button>
-                        </div>
-                    </div>
-			<table>
-            <tbody>
-			<tr>
+                </div>
             </tr>
-        </tbody></table>
+        </table>
+        <br>
+        <table>
+            <tr>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-50"> </div>
+                        <div class="col-sm-9"> </div>
+                        <div class="col-sm-50">
+                            <input class="btn btn-success" type="button" style="font-weight: bold;" onClick="location.reload();" value="REFRESCAR CHAT">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<button
+                                class="btn btn-primary" type="submit"><b>ENVIAR</b></button>
+                        </div>
+                    </div>
+                </div>
+            </tr>
+        </table>
     </form>
     <br>
     <table class="table table-bordered">
@@ -73,7 +80,7 @@
                 </th>
             </tr>
         </thead>
-            <tbody>
+        <tbody>
             <tr th:each="message : ${messages}">
                 <td width="500px" class="text-justify">
                     <font color="white"><span th:text="${message.name}" style="display:block;width:500px;word-wrap:break-word"></font></span></td>
