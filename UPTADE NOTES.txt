@@ -3,3 +3,4 @@ V1.0 - Mobile view support added, "Name" field now is smaller than "Message" Fie
 V1.0.1 - Blank message BUG fixed
 V1.0.2 - Buttons position BUG fixed
 v1.0.3 - Messages Length BUG fixed
+v1.2 - New Icon and New Footer
