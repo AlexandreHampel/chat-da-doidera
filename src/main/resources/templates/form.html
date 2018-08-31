@@ -72,10 +72,10 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th scope="col" style="width:500px;">
+                <th scope="col" style="width:30%;">
                     <font color="white">NOME</font>
                 </th>
-                <th scope="col" style="width:500px;">
+                <th scope="col" style="width:70%;">
                     <font color="white">MENSAGEM</font>
                 </th>
             </tr>
@@ -83,9 +83,9 @@
         <tbody>
             <tr th:each="message : ${messages}">
                 <td width="500px" class="text-justify">
-                    <font color="white"><span th:text="${message.name}" style="display:block;width:500px;word-wrap:break-word"></font></span></td>
+                    <font color="white"><span th:text="${message.name}" style="display:block;width:90%;word-wrap:break-word"></font></span></td>
                 <td width="500px" class="text-justify">
-                    <font color="white"><span th:text="${message.msg}" style="display:block;width:500px;word-wrap:break-word"></font></span></td>
+                    <font color="white"><span th:text="${message.msg}" style="display:block;width:90%;word-wrap:break-word"></font></span></td>
             </tr>
         </tbody>
     </table>
