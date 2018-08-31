@@ -1,2 +1,3 @@
 v0.9.0 - First Release - Bootstrap Available
 V1.0 - Mobile view support added, "Name" field now is smaller than "Message" Field, Background and Font added, Icon And Title available
+V1.0.1 - Blank message BUG fixed

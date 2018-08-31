@@ -34,7 +34,7 @@
                         </div>
                         <div class="col">
                             <b class="text-justify"><font color="white">NOME:</font></b>
-                            <input class="form-control form-control-lg" type="text" th:field="*{name}" required>
+                            <input class="form-control form-control-lg" type="text" th:field="*{name}" required pattern=".*\S+.*">
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                         </div>
                         <div class="col">
                             <b class="text-justify"><font color="white">MENSAGEM:</font></b>
-                            <input class="form-control form-control-lg" type="text" th:field="*{msg}" required>
+                            <input class="form-control form-control-lg" type="text" th:field="*{msg}" required pattern=".*\S+.*">
                         </div>
                     </div>
                 </div>
