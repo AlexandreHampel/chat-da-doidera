@@ -73,18 +73,12 @@
                 </th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
+            <tbody>
+            <tr th:each="message : ${messages}">
                 <td width="500px" class="text-justify">
-                    <font color="white"><span style="display:block;width:500px;word-wrap:break-word">Paula</span></font></td>
+                    <font color="white"><span th:text="${message.name}" style="display:block;width:500px;word-wrap:break-word"></font></span></td>
                 <td width="500px" class="text-justify">
-                    <font color="white"><span style="display:block;width:500px;word-wrap:break-word">Time to sleep </span></font></td>
-            </tr>
-            <tr>
-                <td width="500px" class="text-justify">
-                    <font color="white"><span style="display:block;width:500px;word-wrap:break-word">Alexandre</span></font></td>
-                <td width="500px" class="text-justify">
-                    <font color="white"><span style="display:block;width:500px;word-wrap:break-word">COÉ</span></font></td>
+                    <font color="white"><span th:text="${message.msg}" style="display:block;width:500px;word-wrap:break-word"></font></span></td>
             </tr>
         </tbody>
     </table>
