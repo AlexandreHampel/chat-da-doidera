@@ -12,27 +12,22 @@
          font-family: Ubuntu;
          font-size: 16px;
          }
-
-		 footer {
-		 bottom:0;
-		 position:fixed;
-		 width: 100%;
-		 background-color: #9933CC;
-		}
-
+         footer {
+         bottom:0;
+         position:fixed;
+         width: 100%;
+         background-color: #9933CC;
+         }
       </style>
-	 
    </head>
    <body>
-   <br>
-   <div class="row" style="text-align: center; width:100%">
-    <img src="https://image.ibb.co/fDhq9e/icone.png" width = "10%">
-	</div>
+      <br>
+      <div class="row" style="text-align: center; width:100%">
+         <img src="https://image.ibb.co/fDhq9e/icone.png" width = "10%">
+      </div>
       <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu">
       <br>
-          <form method="post" th:action="@{/}" th:object="${message}">
-			
-	  
+      <form method="post" th:action="@{/}" th:object="${message}">
          <div class="container">
             <div class="row">
                <div class="col">
@@ -46,7 +41,6 @@
             </div>
          </div>
          <br>
-		 
          <div class="container">
             <div class="row">
                <div class="col">
@@ -60,47 +54,41 @@
             </div>
          </div>
          <br>
-        <div>
+         <div>
             <div class="row" style="padding-left:50%; width:100%; text-align:center;">
                <div>
                   <input class="btn btn-success" type="button" style="font-weight: bold;" onclick="location.reload();" value="REFRESCAR CHAT">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-primary" type="submit"><b>ENVIAR</b></button>
                </div>
             </div>
          </div>
-		 
       </form>
       <br>
-        <table class="table table-bordered" style="width: 100%; max-width: 100%; table-layout: fixed;">	
-        <thead>	
-            <tr>	
-                <th style="width:30%">	
-                    <font color="white">NOME</font>	
-                </th>	
-                <th style="width:70%">	
-                    <font color="white">MENSAGEM</font>	
-                </th>	
-            </tr>	
-        </thead>	
-        <tbody>	
-            <tr th:each="message : ${messages}">	
-                <td width="30%" class="text-justify">	
-                    <font color="white"><span th:text="${message.name}" style="display:block;width:98%;word-wrap:break-word"></font></span></td>	
-                <td width="70%" class="text-justify">	
-                    <font color="white"><span th:text="${message.msg}" style="display:block;width:98%;word-wrap:break-word"></font></span></td>	
-            </tr>	
-        </tbody>	
-    </table>
-
+      <table class="table table-bordered" style="width: 100%; max-width: 100%; table-layout: fixed;">
+         <thead>
+            <tr>
+               <th style="width:30%">	
+                  <font color="white">NOME</font>	
+               </th>
+               <th style="width:70%">	
+                  <font color="white">MENSAGEM</font>	
+               </th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr th:each="message : ${messages}">
+               <td width="30%" class="text-justify">	
+                  <font color="white"><span th:text="${message.name}" style="display:block;width:98%;word-wrap:break-word"></font></span>
+               </td>
+               <td width="70%" class="text-justify">	
+                  <font color="white"><span th:text="${message.msg}" style="display:block;width:98%;word-wrap:break-word"></font></span>
+               </td>
+            </tr>
+         </tbody>
+      </table>
    </body>
-	   <footer class="page-footer font-small blue">
-
- 
-  <div class="footer-copyright text-center py-3">
-  
-	<b><font color="white"> ©Todos Os Direitos Reservados </font></b>
-    
-  </div>
-  
-
-</footer>
+   <footer class="page-footer font-small blue">
+      <div class="footer-copyright text-center py-3">
+         <b><font color="white"> ©Todos Os Direitos Reservados </font></b>
+      </div>
+   </footer>
 </html>
