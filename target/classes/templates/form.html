@@ -1,94 +1,75 @@
-<!DOCTYPE HTML>
 <html>
-<head>
-
-	<title>CHAT DA DOIDERA</title>
-	<link rel="icon" href="https://cotorrachatbot.com/img/favicon.png">
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="webjars/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    </link>
-    <script src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <style>
-        body {
-            background-image: url(http://jonvilma.com/images/purple-16.jpg);
-			font-family: Ubuntu;
-			font-size: 16px;
-        }
-    </style>
-</head>
-<body>
-<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu" />
-    <h2 class="text-center"><b>
-        <font color="white" style="font-family:Ubuntu;">CHAT DA DOIDERA </font>
-   </b></h2>
-    <br>
-    <form method="post" th:action="@{/}" th:object="${message}">
-        <table>
+   <head>
+      <title>CHAT DA DOIDERA</title>
+      <link rel="icon" href="https://cotorrachatbot.com/img/favicon.png">
+      <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=0.78">
+      <link href="webjars/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+      <script src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+      <style>
+         body {
+         background-image: url(http://jonvilma.com/images/purple-16.jpg);
+         font-family: Ubuntu;
+         font-size: 16px;
+         }
+      </style>
+   </head>
+   <body>
+      <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu">
+      <h2 class="text-center"><b>
+         <font color="white" style="font-family:Ubuntu;">CHAT DA DOIDERA </font>
+         </b>
+      </h2>
+      <br>
+      <form method="post" action="/">
+         <div class="container">
+            <div class="row">
+               <div class="col">
+               </div>
+               <div class="col">
+               </div>
+               <div class="col">
+                  <b class="text-justify"><font color="white">NOME:</font></b>
+                  <input class="form-control form-control-lg" type="text" required="" pattern=".*\S+.*" id="name" name="name" value="">
+               </div>
+            </div>
+         </div>
+         <br>
+         <div class="container">
+            <div class="row">
+               <div class="col">
+               </div>
+               <div class="col">
+               </div>
+               <div class="col">
+                  <b class="text-justify"><font color="white">MENSAGEM:</font></b>
+                  <input class="form-control form-control-lg" type="text" required="" pattern=".*\S+.*" id="msg" name="msg" value="">
+               </div>
+            </div>
+         </div>
+         <br>
+         <div>
+            <div class="row" style="padding-left:50%; width:100%; text-align:center;">
+               <div>
+                  <input class="btn btn-success" type="button" style="font-weight: bold;" onclick="location.reload();" value="REFRESCAR CHAT">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-primary" type="submit"><b>ENVIAR</b></button>
+               </div>
+            </div>
+         </div>
+      </form>
+      <br>
+      <table class="table table-bordered">
+         <thead>
             <tr>
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                        </div>
-                        <div class="col">
-                        </div>
-                        <div class="col">
-                            <b class="text-justify"><font color="white">NOME:</font></b>
-                            <input class="form-control form-control-lg" type="text" th:field="*{name}" required pattern=".*\S+.*">
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                        </div>
-                        <div class="col">
-                        </div>
-                        <div class="col">
-                            <b class="text-justify"><font color="white">MENSAGEM:</font></b>
-                            <input class="form-control form-control-lg" type="text" th:field="*{msg}" required pattern=".*\S+.*">
-                        </div>
-                    </div>
-                </div>
+               <th scope="col" style="width:30%;">
+                  <font color="white">NOME</font>
+               </th>
+               <th scope="col" style="width:70%;">
+                  <font color="white">MENSAGEM</font>
+               </th>
             </tr>
-        </table>
-        <br>
-        <table>
-            <tr>
-                <div class="container" style="width:75%">
-                    <div class="row">
-                        <div class="col-sm-50"> </div>
-                        <div class="col-sm-9"> </div>
-                        <div class="col-sm-50">
-                            <input class="btn btn-success" type="button" style="font-weight: bold;" onClick="location.reload();" value="REFRESCAR CHAT">&#160;&#160;&#160;<button
-                                class="btn btn-primary" type="submit"><b>ENVIAR</b></button>
-                        </div>
-                    </div>
-                </div>
-            </tr>
-        </table>
-    </form>
-    <br>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th scope="col" style="width:30%;">
-                    <font color="white">NOME</font>
-                </th>
-                <th scope="col" style="width:70%;">
-                    <font color="white">MENSAGEM</font>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="message : ${messages}">
-                <td width="500px" class="text-justify">
-                    <font color="white"><span th:text="${message.name}" style="display:block;width:90%;word-wrap:break-word"></font></span></td>
-                <td width="500px" class="text-justify">
-                    <font color="white"><span th:text="${message.msg}" style="display:block;width:90%;word-wrap:break-word"></font></span></td>
-            </tr>
-        </tbody>
-    </table>
-</body>
+         </thead>
+         <tbody>
+         </tbody>
+      </table>
+   </body>
 </html>
