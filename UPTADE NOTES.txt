@@ -4,3 +4,4 @@ V1.0.1 - Blank message BUG fixed
 V1.0.2 - Buttons position BUG fixed
 v1.0.3 - Messages Length BUG fixed
 v1.2 - New Icon and New Footer
+v1.3 - New Button "To The Top"
