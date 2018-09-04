@@ -3,11 +3,12 @@
       <title>CHAT DA DOIDERA</title>
 
 	  <link rel="icon" href="https://cotorrachatbot.com/img/favicon.png">
+	  
       <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
 	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=0.5">
-      <link href="webjars/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
-
+      
+	  <link href="webjars/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
 	  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
 	  <link href="css/emoji.css" th:href="@{/css/emoji.css}" rel="stylesheet">
       
@@ -39,7 +40,6 @@
 			border-radius: 10px; 
 			font-size: 18px;
 		}
-
 		#myBtn:hover 
 		{
 			background-color: #00BFFF; 
@@ -47,6 +47,14 @@
       </style>
    </head>
    <body>
+   <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'GA_TRACKING_ID');
+</script>
        <br>
 	   			
 		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -54,23 +62,24 @@
 		<script src="js/util.js" th:href="@{/js/util.js}"></script>
 		<script src="js/jquery.emojiarea.js" th:href="@{/js/jquery.emojiarea.js}"></script>
 		<script src="js/emoji-picker.js" th:href="@{/js/emoji-picker.js}"></script>
+	
 		<script>
 		 $(function() {
-        // Initializes and creates emoji set from sprite sheet
         window.emojiPicker = new EmojiPicker({
           emojiable_selector: '[data-emojiable=true]',
           assetsPath: '/img',
           popupButtonClasses: 'fa fa-smile-o'
         });
-        // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
-        // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
-        // It can be called as many times as necessary; previously converted input fields will not be converted again
         window.emojiPicker.discover();
       });
     </script>
 
       <div class="row" style="text-align: center; width:100%">
          <img src="https://image.ibb.co/fDhq9e/icone.png" width = "10%">
+      </div>
+	  <br>
+	  <div class="row" style="text-align: center; width:100%">
+       <iframe src="https://open.spotify.com/embed/user/12142801989/playlist/3LqPeP1fWRxtvkCrh4F84l" height="8%" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
       </div>
       <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu">
       <br>
@@ -102,7 +111,6 @@
                </div>
             </div>
          </div>
-         <br>
          <div>
             <div class="row" style="padding-left:50%; width:100%; text-align:center;">
                <div>
@@ -134,6 +142,7 @@
             </tr>
          </tbody>
       </table>
+	  
 	  <button onclick="topFunction()" id="myBtn" title="↑ PRA CIMA ↑">↑ PRA CIMA ↑</button>
 	  <script>
 	  window.onscroll = function() {scrollFunction()};
@@ -155,6 +164,7 @@
 			document.documentElement.scrollTop = 0;
 		}
 	</script>
+	
    </body>
    <footer class="page-footer font-small blue">
       <div class="footer-copyright text-center py-3">
