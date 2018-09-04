@@ -1,11 +1,16 @@
 <html>
    <head>
       <title>CHAT DA DOIDERA</title>
-      <link rel="icon" href="https://cotorrachatbot.com/img/favicon.png">
+
+	  <link rel="icon" href="https://cotorrachatbot.com/img/favicon.png">
       <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=0.5">
       <link href="webjars/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
-      <script src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+	  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+	  <link href="css/emoji.css" th:href="@{/css/emoji.css}" rel="stylesheet">
+      
       <style>
          body {
          background-image: url(https://image.ibb.co/b3s5FK/bg.jpg);
@@ -42,7 +47,28 @@
       </style>
    </head>
    <body>
-      <br>
+       <br>
+	   			
+		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="js/config.js" th:href="@{/js/config.js}"></script>
+		<script src="js/util.js" th:href="@{/js/util.js}"></script>
+		<script src="js/jquery.emojiarea.js" th:href="@{/js/jquery.emojiarea.js}"></script>
+		<script src="js/emoji-picker.js" th:href="@{/js/emoji-picker.js}"></script>
+		<script>
+		 $(function() {
+        // Initializes and creates emoji set from sprite sheet
+        window.emojiPicker = new EmojiPicker({
+          emojiable_selector: '[data-emojiable=true]',
+          assetsPath: '/img',
+          popupButtonClasses: 'fa fa-smile-o'
+        });
+        // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
+        // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
+        // It can be called as many times as necessary; previously converted input fields will not be converted again
+        window.emojiPicker.discover();
+      });
+    </script>
+
       <div class="row" style="text-align: center; width:100%">
          <img src="https://image.ibb.co/fDhq9e/icone.png" width = "10%">
       </div>
@@ -70,7 +96,9 @@
                </div>
                <div class="col">
                   <b class="text-justify"><font color="white">MENSAGEM:</font></b>
-                  <input class="form-control form-control-lg" type="text" required="" pattern=".*\S+.*" id="msg" name="msg" value="" maxlength="255">
+				  <p class="lead emoji-picker-container">
+                  <input class="form-control form-control-lg" type="text" required="" pattern=".*\S+.*" id="msg" name="msg" value="" data-emojiable="true" maxlength="255">
+				  </p>
                </div>
             </div>
          </div>
