@@ -6,4 +6,5 @@ v1.0.3 - Messages Length BUG fixed
 v1.2 - New Icon and New Footer
 v1.3 - New Button "To The Top"
 v2.0 - GitHub access icon added and EMOJIS now available
-v2.1 - Spotify Playlisy now available
+v2.1 - Spotify Playlist now available
+v2.1.1 - Spotify Playlist frame size BUG fixed
