@@ -21,9 +21,7 @@
   "engines": {
     "node": "0.10.x"
   },
-  "devDependencies": {
-
-  },
+  "devDependencies": {},
   "directories": {
     "lib": "./lib"
   },
@@ -43,5 +41,8 @@
     "LICENSE",
     "README.md",
     "screenshot.png"
-  ]
+  ],
+  "dependencies": {
+    "@sentry/browser": "^4.0.0-rc.0"
+  }
 }
