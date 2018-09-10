@@ -2,8 +2,8 @@
 <html>
    <head>
        <title>JOGUINHO DA DOIDERA</title>
-
-      <link rel="shortcut icon" href="design/joguinho/favicon.ico" th:href="@{design/joguinho/favicon.ico}">
+	   
+        <link rel="shortcut icon" href="design/joguinho/favicon.ico" th:href="@{design/joguinho/favicon.ico}">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
       <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,13 +28,16 @@
       </style>
    </head>
    <body onload="startGame()">
+<audio controls autoplay="true" loop="true" hidden="hidden">
+<source src="music/joguinho-soundtrack.mp3" th:href="@{music/joguinho-soundtrack.mp3}" type="audio/mp3">
+</audio>
       <script>
          var myGamePiece;
          var myObstacles = [];
          var myScore;
          
          function startGame() {
-             myGamePiece = new component(30, 30, "white", 10, 120);
+             myGamePiece = new component(30, 30, "orange", 10, 120);
              myGamePiece.gravity = 0.05;
              myScore = new component("30px", "Consolas", "black", 30, 40, "text");
              myGameArea.start();
