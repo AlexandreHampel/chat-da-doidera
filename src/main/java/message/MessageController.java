@@ -36,4 +36,14 @@ public class MessageController {
 
         return "redirect:/";
     }
+	
+	@GetMapping("/joguinho")
+    public String showGame() {
+        return "game";
+    }
+
+    @PostMapping("/joguinho")
+    public String game() {
+        return "redirect:/cobrinha";
+    }
 }

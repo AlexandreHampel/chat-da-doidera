@@ -8,3 +8,4 @@ v1.3 - New Button "To The Top"
 v2.0 - GitHub access icon added and EMOJIS now available
 v2.1 - Spotify Playlist now available
 v2.1.1 - Spotify Playlist frame size BUG fixed
+v3.0 - Joguinho Da Doidera added

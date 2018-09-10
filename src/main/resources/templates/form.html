@@ -8,10 +8,10 @@
 	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=0.5">
       
-	  <link href="webjars/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
 	  <link href="css/emoji.css" th:href="@{/css/emoji.css}" rel="stylesheet">
-      
+
       <style>
          body {
          background-image: url(https://image.ibb.co/b3s5FK/bg.jpg);
@@ -48,7 +48,7 @@
    </head>
    <body>
        <br>
-	   			
+
 		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src="js/config.js" th:href="@{/js/config.js}"></script>
 		<script src="js/util.js" th:href="@{/js/util.js}"></script>
@@ -64,7 +64,6 @@
         window.emojiPicker.discover();
       });
     </script>
-
       <div class="row" style="text-align: center; width:100%">
          <img src="design/icone.png" th:href="@{design/icone.png}" width = "10%">
       </div>
@@ -103,9 +102,9 @@
             </div>
          </div>
          <div>
-            <div class="row" style="padding-left:50%; width:100%; text-align:center;">
+            <div class="row" style="padding-left:44%; width:100%; text-align:center;">
                <div>
-                  <input class="btn btn-success" type="button" style="font-weight: bold;" onclick="location.reload();" value="REFRESCAR CHAT">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-primary" type="submit"><b>ENVIAR</b></button>
+                  <a href="/joguinho"><input class="btn btn-warning" type="button" style="font-weight: bold;" value="JOGUINHO"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="btn btn-success" type="button" style="font-weight: bold;" onclick="location.reload();" value="REFRESCAR CHAT">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-primary" type="submit"><b>ENVIAR</b></button>
                </div>
             </div>
          </div>
