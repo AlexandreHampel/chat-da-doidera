@@ -28,10 +28,13 @@
       </style>
    </head>
    <body onload="startGame()">
-	<!-- <audio controls autoplay="true" loop="true" hidden="hidden">
+	<audio controls autoplay="true" loop="true" hidden="hidden" id="bg-audio">
 		<source src="music/joguinho-soundtrack.mp3" th:href="@{music/joguinho-soundtrack.mp3}" type="audio/mp3">
-	</audio> -->
-	
+	</audio>
+	<script>
+		var audio = document.getElementById("bg-audio");
+		audio.volume = 0.3;
+	</script>
    <script language=javascript>    
          document.onkeydown = function () { 
            switch (event.keyCode) {
