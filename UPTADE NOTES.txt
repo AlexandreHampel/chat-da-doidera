@@ -9,4 +9,5 @@ v2.0 - GitHub access icon added and EMOJIS now available
 v2.1 - Spotify Playlist now available
 v2.1.1 - Spotify Playlist frame size BUG fixed
 v3.0 - Joguinho Da Doidera added
-v3.0 - Joguinho Da Doidera -> Soundtrack added, Square Color is now Orange
+v3.1 - Joguinho Da Doidera -> Soundtrack added, Square Color is now Orange
+v3.1.1 - Joguinho Da Doidera -> Infinity sky BUG fixed
