@@ -28,9 +28,10 @@
       </style>
    </head>
    <body onload="startGame()">
-	<audio controls autoplay="true" loop="true" hidden="hidden">
+	<!-- <audio controls autoplay="true" loop="true" hidden="hidden">
 		<source src="music/joguinho-soundtrack.mp3" th:href="@{music/joguinho-soundtrack.mp3}" type="audio/mp3">
-	</audio>
+	</audio> -->
+	
    <script language=javascript>    
          document.onkeydown = function () { 
            switch (event.keyCode) {
@@ -51,12 +52,34 @@
          var myGamePiece;
          var myObstacles = [];
          var myScore;
-         
+		 var flySound;
+		 var dieSound;
+		 
+		 flySound = new sound("/music/fly-sound.mp3");
+		
+		 
+		function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+        this.sound.play();
+    }
+    this.stop = function(){
+        this.sound.pause();
+    }    
+}
+
+
          function startGame() {
              myGamePiece = new component(30, 30, "/design/joguinho/joguinho-img.png", 500, 120, "image");
              myGamePiece.gravity = 0.05;
              myScore = new component("30px", "Consolas", "black", 30, 40, "text");
              myGameArea.start();
+			 dieSound = new sound("/music/die-sound.mp3");
          }
          
          var myGameArea = {
@@ -69,6 +92,9 @@
                  this.frameNo = 0;
                  this.interval = setInterval(updateGameArea, 20);
                  },
+			 stop : function() {
+				clearInterval(this.interval);
+				}, 
              clear : function() {
                  this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
              }
@@ -96,7 +122,6 @@
                      ctx.fillStyle = color;
                      ctx.fillText(this.text, this.x, this.y);
                  }
-
 				 else if (type == "image") {
 					ctx.drawImage(this.image, 
 					this.x, 
@@ -143,7 +168,9 @@
              var x, height, gap, minHeight, maxHeight, minGap, maxGap;
              for (i = 0; i < myObstacles.length; i += 1) {
                  if (myGamePiece.crashWith(myObstacles[i])) {
-                     return;
+					dieSound.play();
+					myGameArea.stop();
+					return;
                  } 
              }
              myGameArea.clear();
@@ -179,8 +206,18 @@
          function accelerate(n) {
              myGamePiece.gravity = n;
          }
+		 function fly() {
+			myGamePiece.image.src = "/design/joguinho/joguinho-img.png";
+			myGamePiece.speedX = 0; 
+			myGamePiece.speedY = 0; 
+		}		
+		 function fly2() {
+			myGamePiece.image.src = "/design/joguinho/joguinho-img-fly.png";
+			myGamePiece.speedX = 0; 
+			myGamePiece.speedY = 0; 
+		}	
       </script>
-      <button type="button" class="btn btn-warning btn-lg btn-block" onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)"><b>VOAR</b></button>
+      <button type="button" class="btn btn-warning btn-lg btn-block" onmousedown="accelerate(-0.2);fly2();flySound.play();" onmouseup="accelerate(0.05);fly()"><b>VOAR</b></button>
 	  <input class="btn btn-success btn-lg btn-block" type="button" style="font-weight: bold;" onclick="location.reload();" value="RECOMEÇAR">
       <a href="/"><input class="btn btn-primary btn-lg btn-block" type="button" style="font-weight: bold;" value="VOLTAR PRO CHAT"></a>
       <div class="row" style="padding-left:2%; width:100%; text-align:center;">
