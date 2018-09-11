@@ -211,13 +211,9 @@
          }
 		 function fly() {
 			myGamePiece.image.src = "/design/joguinho/joguinho-img.png";
-			myGamePiece.speedX = 0; 
-			myGamePiece.speedY = 0; 
 		}		
 		 function fly2() {
 			myGamePiece.image.src = "/design/joguinho/joguinho-img-fly.png";
-			myGamePiece.speedX = 0; 
-			myGamePiece.speedY = 0; 
 		}	
       </script>
       <button type="button" class="btn btn-warning btn-lg btn-block" onmousedown="accelerate(-0.2);fly2();flySound.play();" onmouseup="accelerate(0.05);fly()"><b>VOAR</b></button>
