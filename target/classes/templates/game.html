@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
    <head>
-       <title>JOGUINHO DA DOIDERA</title>
-	   
-        <link rel="shortcut icon" href="design/joguinho/favicon.ico" th:href="@{design/joguinho/favicon.ico}">
+      <title>JOGUINHO DA DOIDERA</title>
+      <link rel="shortcut icon" href="design/joguinho/favicon.ico">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
       <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,10 +27,11 @@
       </style>
    </head>
    <body onload="startGame()">
-	<audio controls autoplay="true" loop="true" hidden="hidden">
-		<source src="music/joguinho-soundtrack.mp3" th:href="@{music/joguinho-soundtrack.mp3}" type="audio/mp3">
-	</audio>
-   <script language=javascript>    
+      <canvas width="1280" height="380"></canvas>
+      <audio controls="" autoplay="true" loop="true" hidden="hidden">
+         <source src="music/joguinho-soundtrack.mp3" href="music/joguinho-soundtrack.mp3" type="audio/mp3">
+      </audio>
+      <script language="javascript">    
          document.onkeydown = function () { 
            switch (event.keyCode) {
              case 116 :  
@@ -45,15 +45,15 @@
                   return false;
            }
          }
-     } 
-     </script>
+         } 
+      </script>
       <script>
          var myGamePiece;
          var myObstacles = [];
          var myScore;
          
          function startGame() {
-             myGamePiece = new component(30, 30, "orange", 500, 120);
+             myGamePiece = new component(30, 30, "design/joguinho/joguinho-img.png", 500, 120, "image");
              myGamePiece.gravity = 0.05;
              myScore = new component("30px", "Consolas", "black", 30, 40, "text");
              myGameArea.start();
@@ -73,9 +73,12 @@
                  this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
              }
          }
-         
          function component(width, height, color, x, y, type) {
              this.type = type;
+         if (type == "image") {
+         this.image = new Image();
+         this.image.src = color;
+         }
              this.score = 0;
              this.width = width;
              this.height = height;
@@ -91,7 +94,16 @@
                      ctx.font = this.width + " " + this.height;
                      ctx.fillStyle = color;
                      ctx.fillText(this.text, this.x, this.y);
-                 } else {
+                 } 
+         
+         else if (type == "image") {
+         ctx.drawImage(this.image, 
+         this.x, 
+         this.y,
+         this.width, this.height);
+         }
+         else 
+         {
                      ctx.fillStyle = color;
                      ctx.fillRect(this.x, this.y, this.width, this.height);
                  }
@@ -145,8 +157,8 @@
                  gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
                  myObstacles.push(new component(10, height, "purple", x, 0));
                  myObstacles.push(new component(10, x - height - gap, "purple", x, height + gap));
-				 myObstacles.push(new component(9999, 5, "purple", -5, 0));
-				 myObstacles.push(new component(9999, 5, "purple", -5, 375));
+         myObstacles.push(new component(9999, 5, "purple", -5, 0));
+         myObstacles.push(new component(9999, 5, "purple", -5, 375));
              }
              for (i = 0; i < myObstacles.length; i += 1) {
                  myObstacles[i].x += -1;
@@ -157,7 +169,6 @@
              myGamePiece.update();
              if(myGameArea.frameNo>600){myScore.update();}
          }
-         
          function everyinterval(n) {
              if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
              return false;
@@ -168,15 +179,15 @@
          }
       </script>
       <button type="button" class="btn btn-warning btn-lg btn-block" onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)"><b>VOAR</b></button>
-	  <input class="btn btn-success btn-lg btn-block" type="button" style="font-weight: bold;" onclick="location.reload();" value="RECOMEÇAR">
+      <input class="btn btn-success btn-lg btn-block" type="button" style="font-weight: bold;" onclick="location.reload();" value="RECOMEÇAR">
       <a href="/"><input class="btn btn-primary btn-lg btn-block" type="button" style="font-weight: bold;" value="VOLTAR PRO CHAT"></a>
       <div class="row" style="padding-left:2%; width:100%; text-align:center;">
-         <img src="design/joguinho/icone.png" th:href="@{design/joguinho/icone.png}" width = "10%">
+         <img src="design/joguinho/icone.png" href="design/joguinho/icone.png" width="10%">
       </div>
+      <footer class="page-footer font-small blue">
+         <div class="footer-copyright text-center py-3">
+            <b><font color="white"> ©Todos Os Direitos Reservados </font></b>&nbsp;&nbsp;&nbsp;<a href="https://github.com/AlexandreHampel/chat-da-doidera" target="_blank"><img id="imageQueFunciona" src="design/github.png" href="design/github.png" width="3%"></a>
+         </div>
+      </footer>
    </body>
-   <footer class="page-footer font-small blue">
-      <div class="footer-copyright text-center py-3">
-         <b><font color="white"> ©Todos Os Direitos Reservados </font></b>&#160;&#160;&#160;<a href="https://github.com/AlexandreHampel/chat-da-doidera" target="_blank"><img src="design/github.png" th:href="@{design/github.png}" width = "3%"></a>
-      </div>
-   </footer>
 </html>

@@ -13,3 +13,4 @@ v3.1 - Joguinho Da Doidera -> Soundtrack added, Square Color is now Orange
 v3.1.1 - Joguinho Da Doidera -> Infinity sky BUG fixed
 v3.2 - Joguinho da Doidera -> Updated
 v3.2.1 - Joguinho da Doidera -> Ctrl + R & F5 disabled(it was bugging the soundtrack)
+v3.3 - Joguinho da Doidera -> New Character
