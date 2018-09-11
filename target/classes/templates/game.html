@@ -28,9 +28,25 @@
       </style>
    </head>
    <body onload="startGame()">
-<audio controls autoplay="true" loop="true" hidden="hidden">
-<source src="music/joguinho-soundtrack.mp3" th:href="@{music/joguinho-soundtrack.mp3}" type="audio/mp3">
-</audio>
+	<audio controls autoplay="true" loop="true" hidden="hidden">
+		<source src="music/joguinho-soundtrack.mp3" th:href="@{music/joguinho-soundtrack.mp3}" type="audio/mp3">
+	</audio>
+   <script language=javascript>    
+         document.onkeydown = function () { 
+           switch (event.keyCode) {
+             case 116 :  
+                event.returnValue = false;
+                event.keyCode = 0;           
+                return false;             
+              case 82 : 
+                if (event.ctrlKey) {  
+                   event.returnValue = false;
+                  event.keyCode = 0;             
+                  return false;
+           }
+         }
+     } 
+     </script>
       <script>
          var myGamePiece;
          var myObstacles = [];
