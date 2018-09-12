@@ -185,7 +185,7 @@
                  x = myGameArea.canvas.width;
                  minHeight = 20;
                  maxHeight = 200;
-                 height = 100;
+				 height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
                  minGap = 50;
                  maxGap = 150;
                  gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
@@ -199,7 +199,7 @@
                  myObstacles[i].update();
              }
              myScore.text="PONTUAÇÃO: " + (myGameArea.frameNo-600);
-			 if (myGameArea.frameNo == 1 || everyinterval(0.1)) {
+			 if (myGameArea.frameNo == 1 || everyinterval(0.0001)) {
 				myGamePiece.newPos();
 				myGamePiece.update();
 			 }
