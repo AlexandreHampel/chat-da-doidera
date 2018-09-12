@@ -96,15 +96,19 @@
                  this.context = this.canvas.getContext("2d");
                  document.body.insertBefore(this.canvas, document.body.childNodes[0]);
                  this.frameNo = 0;
-                 this.interval = setInterval(updateGameArea, 20);
+                 this.interval = setInterval(updateGameArea, 25);
                  },
-			 stop : function() {
+				 
+			  stop : function() {
+				
 				clearInterval(this.interval);
-				}, 
-             clear : function() {
+				},
+				
+				clear : function() {
                  this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
              }
-         }
+			   
+	       }
          
          function component(width, height, color, x, y, type) {
              this.type = type;
@@ -174,36 +178,96 @@
              var x, height, gap, minHeight, maxHeight, minGap, maxGap;
              for (i = 0; i < myObstacles.length; i += 1) {
                  if (myGamePiece.crashWith(myObstacles[i])) {
-					dieSound.play();
-					myGameArea.stop();
-					return;
+						myGameArea.stop();
+						dieSound.play();
+						dieSound = null;
+						return;
                  } 
              }
              myGameArea.clear();
              myGameArea.frameNo += 1;
-             if (myGameArea.frameNo == 1 || everyinterval(150)) {
+             if (myGameArea.frameNo == 1 || everyinterval(200)) {
                  x = myGameArea.canvas.width;
                  minHeight = 20;
                  maxHeight = 200;
 				 height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
-                 minGap = 50;
-                 maxGap = 150;
+                 minGap = 70;
+                 maxGap = 125;
                  gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
                  myObstacles.push(new component(10, height, "purple", x, 0));
                  myObstacles.push(new component(10, x - height - gap, "purple", x, height + gap));
 				 myObstacles.push(new component(9999, 5, "purple", -5, 0));
 				 myObstacles.push(new component(9999, 5, "purple", -5, 375));
              }
+			 
              for (i = 0; i < myObstacles.length; i += 1) {
                  myObstacles[i].x += -1;
                  myObstacles[i].update();
              }
-             myScore.text="PONTUAÇÃO: " + (myGameArea.frameNo-600);
+
+			 if(myGameArea.frameNo == 1100)
+			 {
+				myGameArea.interval = setInterval(updateGameArea, 24.5);					
+			 }
+			 if(myGameArea.frameNo == 1600)
+			 {
+				myGameArea.interval = setInterval(updateGameArea, 24.1);					
+			 }
+			 if(myGameArea.frameNo == 2600)
+			 {
+				myGameArea.interval = setInterval(updateGameArea, 23.6);					
+			 }
+			 if(myGameArea.frameNo == 3600)
+			 {
+				myGameArea.interval = setInterval(updateGameArea, 23.1);					
+			 }
+			 if(myGameArea.frameNo == 4600)
+			 {
+				myGameArea.interval = setInterval(updateGameArea, 22.5);					
+			 }
+	 
+	     if(myGameArea.frameNo>1100 && myGameArea.frameNo<1175 )
+		 {
+			myScore.text="VELOCIDADE AUMENTADA";
+			myScore.update();
+		 }
+		 else if(myGameArea.frameNo>1600 && myGameArea.frameNo<1675 )
+		 {
+			myScore.text="VELOCIDADE AUMENTADA";
+			myScore.update();
+		 }
+		 else if(myGameArea.frameNo>2600 && myGameArea.frameNo<2675 )
+		 {
+			myScore.text="VELOCIDADE AUMENTADA";
+			myScore.update();
+		 }
+		 else if(myGameArea.frameNo>3600 && myGameArea.frameNo<3675 )
+		 {
+			myScore.text="VELOCIDADE AUMENTADA";
+			myScore.update();
+		 }
+		 else if(myGameArea.frameNo>4600 && myGameArea.frameNo<4675 )
+		 {
+			myScore.text="VELOCIDADE AUMENTADA";
+			myScore.update();
+		 }
+		 else if(myGameArea.frameNo<600)
+		 {
+    		 myScore.text="PONTUAÇÃO: 0";
+			 myScore.update();
+		 }
+		 else
+		 {
+			 myScore.text="PONTUAÇÃO: " + (myGameArea.frameNo-600);
+			 myScore.update();
+		 }
+			 
 			 if (myGameArea.frameNo == 1 || everyinterval(1)) {
 				myGamePiece.newPos();
 				myGamePiece.update();
 			 }
-             if(myGameArea.frameNo>600){myScore.update();}
+			 
+             
          }
          
          function everyinterval(n) {
