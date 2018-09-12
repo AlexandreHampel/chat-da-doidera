@@ -82,7 +82,7 @@
 
          function startGame() {
              myGamePiece = new component(30, 30, "/design/joguinho/joguinho-img.png", 500, 120, "image");
-             myGamePiece.gravity = 0.1;
+             myGamePiece.gravity = 0.05;
              myScore = new component("30px", "Consolas", "black", 30, 40, "text");
              myGameArea.start();
 			 dieSound = new sound("/music/die-sound.mp3");
@@ -199,7 +199,7 @@
                  myObstacles[i].update();
              }
              myScore.text="PONTUAÇÃO: " + (myGameArea.frameNo-600);
-			 if (myGameArea.frameNo == 1 || everyinterval(0.1)) {
+			 if (myGameArea.frameNo == 1 || everyinterval(0.0001)) {
 				myGamePiece.newPos();
 				myGamePiece.update();
 			 }
@@ -225,7 +225,7 @@
 			myGamePiece.speedY = 0; 
 		}	
       </script>
-      <button type="button" class="btn btn-warning btn-lg btn-block" onmousedown="accelerate(-0.2);fly();fly2();flySound.play();" onmouseup="accelerate(0.05);fly()"><b>VOAR</b></button>
+      <button type="button" class="btn btn-warning btn-lg btn-block" onmousedown="accelerate(-0.2);fly();fly2();flySound.play();" onmouseup="accelerate(0.05);fly();"><b>VOAR</b></button>
 	  <input class="btn btn-success btn-lg btn-block" type="button" style="font-weight: bold;" onclick="location.reload();" value="RECOMEÇAR">
       <a href="/"><input class="btn btn-primary btn-lg btn-block" type="button" style="font-weight: bold;" value="VOLTAR PRO CHAT"></a>
       <div class="row" style="padding-left:2%; width:100%; text-align:center;">
