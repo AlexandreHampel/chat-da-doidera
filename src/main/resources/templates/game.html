@@ -5,6 +5,7 @@
 	   
         <link rel="shortcut icon" href="design/joguinho/favicon.ico" th:href="@{design/joguinho/favicon.ico}">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
       <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,6 +29,8 @@
       </style>
    </head>
    <body onload="startGame()">
+   
+   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu">
 	<audio controls autoplay="true" loop="true" hidden="hidden" id="bg-audio">
 		<source src="music/joguinho-soundtrack.mp3" th:href="@{music/joguinho-soundtrack.mp3}" type="audio/mp3">
 	</audio>
@@ -196,8 +199,10 @@
                  myObstacles[i].update();
              }
              myScore.text="PONTUAÇÃO: " + (myGameArea.frameNo-600);
-             myGamePiece.newPos();
-             myGamePiece.update();
+			 if (myGameArea.frameNo == 1 || everyinterval(1)) {
+				myGamePiece.newPos();
+				myGamePiece.update();
+			 }
              if(myGameArea.frameNo>600){myScore.update();}
          }
          
