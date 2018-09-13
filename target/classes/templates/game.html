@@ -63,27 +63,27 @@
 		 
 		 flySound = new sound("/music/fly-sound.mp3");
 		
-		 
 		function sound(src) {
-    this.sound = document.createElement("audio");
-    this.sound.src = src;
-    this.sound.setAttribute("preload", "auto");
-    this.sound.setAttribute("controls", "none");
-    this.sound.style.display = "none";
-    document.body.appendChild(this.sound);
-    this.play = function(){
-        this.sound.play();
-    }
-    this.stop = function(){
-        this.sound.pause();
-    }    
-}
+			this.sound = document.createElement("audio");
+			this.sound.src = src;
+			this.sound.setAttribute("preload", "auto");
+			this.sound.setAttribute("controls", "none");
+			this.sound.style.display = "none";
+			document.body.appendChild(this.sound);
+			this.play = function(){
+			this.sound.play();
+			}
+			this.stop = function(){
+				this.sound.pause();
+			}    
+		}
 
 
          function startGame() {
              myGamePiece = new component(30, 30, "/design/joguinho/joguinho-img.png", 500, 120, "image");
              myGamePiece.gravity = 0.05;
              myScore = new component("30px", "Consolas", "black", 30, 40, "text");
+			 mySpeed = new component("30px", "Consolas", "black", 30, 70, "text");
              myGameArea.start();
 			 dieSound = new sound("/music/die-sound.mp3");
          }
@@ -225,50 +225,96 @@
 			 {
 				myGameArea.interval = setInterval(updateGameArea, 22.5);					
 			 }
+			  if(myGameArea.frameNo == 5600)
+			 {
+				myGameArea.interval = setInterval(updateGameArea, 22.2);					
+			 }
 	 
-	     if(myGameArea.frameNo>1100 && myGameArea.frameNo<1175 )
-		 {
-			myScore.text="VELOCIDADE AUMENTADA";
-			myScore.update();
-		 }
-		 else if(myGameArea.frameNo>1600 && myGameArea.frameNo<1675 )
-		 {
-			myScore.text="VELOCIDADE AUMENTADA";
-			myScore.update();
-		 }
-		 else if(myGameArea.frameNo>2600 && myGameArea.frameNo<2675 )
-		 {
-			myScore.text="VELOCIDADE AUMENTADA";
-			myScore.update();
-		 }
-		 else if(myGameArea.frameNo>3600 && myGameArea.frameNo<3675 )
-		 {
-			myScore.text="VELOCIDADE AUMENTADA";
-			myScore.update();
-		 }
-		 else if(myGameArea.frameNo>4600 && myGameArea.frameNo<4675 )
-		 {
-			myScore.text="VELOCIDADE AUMENTADA";
-			myScore.update();
-		 }
-		 else if(myGameArea.frameNo<600)
-		 {
-    		 myScore.text="PONTUAÇÃO: 0";
-			 myScore.update();
-		 }
-		 else
-		 {
-			 myScore.text="PONTUAÇÃO: " + (myGameArea.frameNo-600);
-			 myScore.update();
-		 }
+			if(myGameArea.frameNo<600)
+			{
+				myScore.text="PONTUAÇÃO: 0";
+				myScore.update();
+			}
+			else
+			{
+				myScore.text="PONTUAÇÃO: " + (myGameArea.frameNo-600);
+				myScore.update();
+			}
 			 
 			 if (myGameArea.frameNo == 1 || everyinterval(1)) {
 				myGamePiece.newPos();
 				myGamePiece.update();
 			 }
-			 
-             
-         }
+			
+		 if(myGameArea.frameNo>1100 && myGameArea.frameNo<1175 )
+		 {
+			mySpeed.text="VELOCIDADE AUMENTADA!";
+			mySpeed.update();
+		 }
+		 else if(myGameArea.frameNo>1600 && myGameArea.frameNo<1675 )
+		 {
+			mySpeed.text="VELOCIDADE AUMENTADA!";
+			mySpeed.update();
+		 }
+		 else if(myGameArea.frameNo>2600 && myGameArea.frameNo<2675 )
+		 {
+			mySpeed.text="VELOCIDADE AUMENTADA!";
+			mySpeed.update();
+		 }
+		 else if(myGameArea.frameNo>3600 && myGameArea.frameNo<3675 )
+		 {
+			mySpeed.text="VELOCIDADE AUMENTADA!";
+			mySpeed.update();
+		 }
+		 else if(myGameArea.frameNo>4600 && myGameArea.frameNo<4675 )
+		 {
+			mySpeed.text="VELOCIDADE AUMENTADA!";
+			mySpeed.update();
+		 }
+		 else if(myGameArea.frameNo>5600 && myGameArea.frameNo<5675 )
+		 {
+			mySpeed.text="VELOCIDADE AUMENTADA!";
+			mySpeed.update();
+		 }
+		 
+		 
+		  else if(myGameArea.frameNo>=1175 && myGameArea.frameNo<1675)
+		 {
+    		 mySpeed.text="VELOCIDADE: 2";
+			 mySpeed.update();
+		 }
+		  else if(myGameArea.frameNo>=1675 && myGameArea.frameNo<2675)
+		 {
+    		 mySpeed.text="VELOCIDADE: 3";
+			 mySpeed.update();
+		 }
+		  else if(myGameArea.frameNo>=2675 && myGameArea.frameNo<3675)
+		 {
+    		 mySpeed.text="VELOCIDADE: 3.5";
+			 mySpeed.update();
+		 }
+		  else if(myGameArea.frameNo>=3675 && myGameArea.frameNo<4675)
+		 {
+    		 mySpeed.text="VELOCIDADE: 4";
+			 mySpeed.update();
+		 }
+		  else if(myGameArea.frameNo>=4675 && myGameArea.frameNo<5675)
+		 {
+    		 mySpeed.text="VELOCIDADE: 4.5";
+			 mySpeed.update();
+		 }
+		  else if(myGameArea.frameNo>=5675)
+		 {
+    		 mySpeed.text="VELOCIDADE: 5";
+			 mySpeed.update();
+		 }
+		 else
+		 {
+			mySpeed.text="VELOCIDADE: 1";
+			 mySpeed.update();
+		 }
+      
+      }
          
          function everyinterval(n) {
              if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
