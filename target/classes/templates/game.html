@@ -242,7 +242,7 @@
 			}
 			 
 			 if (myGameArea.frameNo == 1 || everyinterval(1)) {
-				myGamePiece.newPos();
+				myGamePiece.newPos();				
 				myGamePiece.update();
 			 }
 			
@@ -334,6 +334,22 @@
 			myGamePiece.speedX = 0; 
 			myGamePiece.speedY = 0; 
 		}	
+	document.body.onkeydown = function(e){
+		if(e.keyCode == 32 || e.keyCode == 38){
+			accelerate(-0.2);
+			fly();
+			fly2();
+			flySound.play();
+		}
+	}
+	document.body.onkeyup = function(e){
+		if(e.keyCode == 32 || e.keyCode == 38){
+			accelerate(0.05);
+			fly();
+		}
+	}
+
+
       </script>
       <button type="button" class="btn btn-warning btn-lg btn-block" onmousedown="accelerate(-0.2);fly();fly2();flySound.play();" onmouseup="accelerate(0.05);fly();"><b>VOAR</b></button>
 	  <input class="btn btn-success btn-lg btn-block" type="button" style="font-weight: bold;" onclick="location.reload();" value="RECOMEÇAR">
