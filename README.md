@@ -1,9 +1,11 @@
 ## CHAT DA DOIDERA
 
 > **INTRODUÇÃO**
+
 Aqui você pode conversar com seus amigos, ouvir música e jogar, tudo isso em apenas UM SITE!
 
 > **ACESSE**
+
 >`http://chat-da-doidera.herokuapp.com`
 
 > **TELA PRINCIPAL**
