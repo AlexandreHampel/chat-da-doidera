@@ -6,13 +6,14 @@ Aqui você pode conversar com seus amigos, ouvir música e jogar, tudo isso em a
 
 > **ACESSE**
 
->`http://chat-da-doidera.herokuapp.com`
+`http://chat-da-doidera.herokuapp.com`
 
 > **TELA PRINCIPAL**
 
 ![enter image description here](https://preview.ibb.co/mrmO9p/chat01.png)
 
 > **JOGUINHO DA DOIDERA**
+
 > `http://chat-da-doidera.herokuapp.com/joguinho`
 
 ![enter image description here](https://preview.ibb.co/esZoaU/chat02.png)
