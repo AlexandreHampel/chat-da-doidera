@@ -96,12 +96,10 @@
                  this.context = this.canvas.getContext("2d");
                  document.body.insertBefore(this.canvas, document.body.childNodes[0]);
                  this.frameNo = 0;
-                 this.interval = setInterval(updateGameArea, 25);
-                 },
-				 
-			  stop : function() {
-				
-				clearInterval(this.interval);
+                 this.interval = setInterval(updateGameArea, 25);				 
+				},	
+					stop : function() {
+					clearInterval(this.interval);
 				},
 				
 				clear : function() {
@@ -194,8 +192,8 @@
                  minGap = 70;
                  maxGap = 125;
                  gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
-                 myObstacles.push(new component(10, height, "purple", x, 0));
-                 myObstacles.push(new component(10, x - height - gap, "purple", x, height + gap));
+                 myObstacles.push(new component(50, height, "/design/joguinho/mario-bros-cano-down.png", x, 0, "image"));
+                 myObstacles.push(new component(50, x - height - gap - 925, "/design/joguinho/mario-bros-cano-up.png", x, height + gap + 20, "image")); 
 				 myObstacles.push(new component(9999, 5, "purple", -5, 0));
 				 myObstacles.push(new component(9999, 5, "purple", -5, 375));
              }
@@ -229,7 +227,7 @@
 			 {
 				myGameArea.interval = setInterval(updateGameArea, 22.2);					
 			 }
-	 
+			
 			if(myGameArea.frameNo<600)
 			{
 				myScore.text="PONTUAÇÃO: 0";
@@ -348,14 +346,20 @@
 			fly();
 		}
 	}
+		document.addEventListener('keydown', function(e){
+			if(e.keyCode == 82)
+				window.location.reload();
+		})
 
 
       </script>
       <button type="button" class="btn btn-warning btn-lg btn-block" onmousedown="accelerate(-0.2);fly();fly2();flySound.play();" onmouseup="accelerate(0.05);fly();"><b>VOAR</b></button>
-	  <input class="btn btn-success btn-lg btn-block" type="button" style="font-weight: bold;" onclick="location.reload();" value="RECOMEÇAR">
       <a href="/"><input class="btn btn-primary btn-lg btn-block" type="button" style="font-weight: bold;" value="VOLTAR PRO CHAT"></a>
       <div class="row" style="padding-left:2%; width:100%; text-align:center;">
          <img src="design/joguinho/icone.png" th:href="@{design/joguinho/icone.png}" width = "10%">
+		 <img src="design/joguinho/keyboard.png" th:href="@{design/joguinho/keyboard.png}" width = "20%">
+		 <img src="design/joguinho/r.png" th:href="@{design/joguinho/r.png}" width = "5%">
+		  <img src="design/joguinho/icone.png" th:href="@{design/joguinho/icone.png}" width = "10%">
       </div>
    </body>
    <footer class="page-footer font-small blue">

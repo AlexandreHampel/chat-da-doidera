@@ -18,4 +18,5 @@ v3.4 - Joguinho da Doidera -> Character Movement & Sound Effects added
 v3.4.1 - Joguinho da Doidera -> Character Movement Improved & Font Now Working
 v3.5 - Joguinho da Doidera -> Speed Levels now available
 v3.6 - Joguinho da Doidera -> Speed Field now available
-v3.7 - Joguinho da Doidera -> Keyboard Keys now Supported(Spacebar and Arrow Up)
+v3.7 - Joguinho da Doidera -> Keyboard Keys now Supported(Spacebar and Arrow Up),
+v3.8 - Joguinho da Doidera -> Update(Obstacles Texture now Available & Keyboard keys now on screen)
