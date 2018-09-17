@@ -351,6 +351,24 @@
 			if(e.keyCode == 82)
 				window.location.reload();
 		})
+		
+		var bgaudio = document.getElementById("bg-audio");
+		document.addEventListener('keydown', function(e){
+			if(e.keyCode == 66)
+				bgaudio.muted = true;
+		})
+		document.addEventListener('keydown', function(e){
+			if(e.keyCode == 78)
+				flySound = null;
+		})
+		document.addEventListener('keydown', function(e){
+			if(e.keyCode == 77)
+				dieSound = null;
+		})
+		
+		
+    
+
 
 
       </script>
@@ -360,6 +378,7 @@
          <img src="design/joguinho/icone.png" th:href="@{design/joguinho/icone.png}" width = "10%">
 		 <img src="design/joguinho/keyboard.png" th:href="@{design/joguinho/keyboard.png}" width = "20%">
 		 <img src="design/joguinho/r.png" th:href="@{design/joguinho/r.png}" width = "5%">
+		 <img src="design/joguinho/bnm.png" th:href="@{design/joguinho/bnm.png}" width = "15%">
 		  <img src="design/joguinho/icone.png" th:href="@{design/joguinho/icone.png}" width = "10%">
       </div>
    </body>
